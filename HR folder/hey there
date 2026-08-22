@@ -58,7 +58,6 @@ print(df.isna().sum())
 print("Cleaned Dataset Shape:", df.shape)
 
 
-
 print("3. EXPLORATORY DATA ANALYSIS & MANIPULATION")
 
 
@@ -72,7 +71,6 @@ df['level'] = pd.cut(df['years'], bins=[0,2,5,50], labels=['Junior','Mid','Senio
 df['is_high_performer'] = np.where(df['performance'] >= 4, 1, 0)
 
 print("\nB. New Features Created: years, level, salary_per_year, is_high_performer")
-
 
 
 print("4. DISTRIBUTION & VISUAL ANALYSIS")
@@ -123,5 +121,4 @@ print("\n1. PAY BY SENIORITY: Senior employees earn ~", avg_salary_level['Senior
  print("4. DATA QUALITY: Dataset is now clean and ready for ML models.")
   print("5. RECOMMENDATION: Review HR and Sales salary bands to reduce pay gap vs IT.")
 
-print("\n=== ANALYSIS COMPLETE ===")
-}
+print("\n=== ANALYSIS COMPLETE ===")}
