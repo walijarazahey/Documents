@@ -6,9 +6,7 @@ sns.set_style("whitegrid")
 pd.set_option('display.width', 200)
 
 
-print("="*60)
 print("1. PROBLEM STATEMENT & DATASET OVERVIEW")
-print("="*60)
 print("Objective: Analyze 500 employee records to find salary trends")
 print("Target: Understand what factors affect salary and employee level\n")
 
@@ -38,9 +36,8 @@ print("\nDataset Info:\n")
 df.info()
 
 
-print("\n" + "="*60)
 print("2. DATA CLEANING & QUALITY AUDIT")
-print("="*60)
+
 
 print("\nA. Missing Values BEFORE Cleaning:")
 print(df.isna().sum())
@@ -61,9 +58,9 @@ print(df.isna().sum())
 print("Cleaned Dataset Shape:", df.shape)
 
 
-print("\n" + "="*60)
+
 print("3. EXPLORATORY DATA ANALYSIS & MANIPULATION")
-print("="*60)
+
 
 print("\nA. Summary Statistics:")
 print(df[['age', 'salary', 'performance']].describe().round(2))
@@ -77,26 +74,26 @@ df['is_high_performer'] = np.where(df['performance'] >= 4, 1, 0)
 print("\nB. New Features Created: years, level, salary_per_year, is_high_performer")
 
 
-print("\n" + "="*60)
+
 print("4. DISTRIBUTION & VISUAL ANALYSIS")
-print("="*60)
+
 
 plt.figure(figsize=(14,10))
 
-# PLOT 1: Histogram - NO ERROR
+# PLOT 1 : histogram
 plt.subplot(2,2,1)
 sns.histplot(df['salary'], bins=30, kde=True, color='skyblue')
 plt.title("Plot 1: Salary Distribution")
 plt.xlabel("Salary")
 
-# PLOT 2: Bar Chart - FIXED: Use color instead of palette+hue
+# PLOT 2: Bar Chart 
 plt.subplot(2,2,2)
 dept_count = df['department'].value_counts()
 sns.barplot(x=dept_count.index, y=dept_count.values, color='steelblue')
 plt.title("Plot 2: Headcount by Department")
 plt.xlabel("Department"); plt.ylabel("Count")
 
-# PLOT 3: Boxplot - FIXED: Use color instead of palette+hue
+# PLOT 3: Boxplot 
 plt.subplot(2,2,3)
 sns.boxplot(x='level', y='salary', data=df, color='orange', order=['Junior','Mid','Senior'])
 plt.title("Plot 3: Salary by Employee Level")
@@ -112,9 +109,8 @@ plt.tight_layout()
 plt.show()
 
 
-print("\n" + "="*60)
 print("5. KEY BUSINESS TAKEAWAYS / CONCLUSION")
-print("="*60)
+
 
 avg_salary_level = df.groupby('level')['salary'].mean().round(0)
 avg_salary_dept = df.groupby('department')['salary'].mean().round(0)
@@ -122,7 +118,7 @@ avg_salary_dept = df.groupby('department')['salary'].mean().round(0)
 print("\n1. PAY BY SENIORITY: Senior employees earn ~", avg_salary_level['Senior'],
       "vs Junior ~", avg_salary_level['Junior'])
  print("2. DEPARTMENT GAP: IT has highest avg salary of", avg_salary_dept['IT'],
-    while HR has lowest of", avg_salary_dept['HR'])
+    "while HR has lowest of", avg_salary_dept['HR'])
  print("3. EXPERIENCE MATTERS: Correlation between years and salary is", corr.loc['years','salary'])
  print("4. DATA QUALITY: Dataset is now clean and ready for ML models.")
   print("5. RECOMMENDATION: Review HR and Sales salary bands to reduce pay gap vs IT.")
