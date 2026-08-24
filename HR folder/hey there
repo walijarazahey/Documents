@@ -114,9 +114,9 @@ avg_salary_level = df.groupby('level')['salary'].mean().round(0)
 avg_salary_dept = df.groupby('department')['salary'].mean().round(0)
 
 print("\n1. PAY BY SENIORITY: Senior employees earn ~", avg_salary_level['Senior'],"vs Junior ~", avg_salary_level['Junior'])
- print("2. DEPARTMENT GAP: IT has highest avg salary of", avg_salary_dept['IT'],"while HR has lowest of", avg_salary_dept['HR'])
- print("3. EXPERIENCE MATTERS: Correlation between years and salary is", corr.loc['years','salary'])
- print("4. DATA QUALITY: Dataset is now clean and ready for ML models.")
-  print("5. RECOMMENDATION: Review HR and Sales salary bands to reduce pay gap vs IT.")
+print("2. DEPARTMENT GAP: IT has highest avg salary of", avg_salary_dept['IT'],"while HR has lowest of", avg_salary_dept['HR'])
+print("3. EXPERIENCE MATTERS: Correlation between years and salary is", corr.loc['years','salary'])
+print("4. DATA QUALITY: Dataset is now clean and ready for ML models.")
+print("5. RECOMMENDATION: Review HR and Sales salary bands to reduce pay gap vs IT.")
 
 print("\n=== ANALYSIS COMPLETE ===")}
