@@ -119,4 +119,4 @@ print("3. EXPERIENCE MATTERS: Correlation between years and salary is", corr.loc
 print("4. DATA QUALITY: Dataset is now clean and ready for ML models.")
 print("5. RECOMMENDATION: Review HR and Sales salary bands to reduce pay gap vs IT.")
 
-print("\n=== ANALYSIS COMPLETE ===")}
+print("\n=== ANALYSIS COMPLETE ===")
